@@ -26,3 +26,21 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.weatherCard {
+  border: 1px solid black;
+  margin: 0 auto;
+  text-align: left;
+  width: 50%;
+}
+
+.weatherCard h3,
+.weatherCard p {
+  margin-left: 3%;
+}
+
+.weatherCard img {
+  width: 100px;
+  height: 100px;
+}
+
