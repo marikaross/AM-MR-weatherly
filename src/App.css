@@ -27,7 +27,8 @@
   to { transform: rotate(360deg); }
 }
 
-.weatherCard {
+.weatherCard,
+ {
   border: 1px solid black;
   margin: 0 auto;
   text-align: left;
@@ -39,7 +40,8 @@
   margin-left: 3%;
 }
 
-.weatherCard img {
+.weatherCard img,
+.hourlyCard img {
   width: 100px;
   height: 100px;
 }
