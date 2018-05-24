@@ -9,11 +9,12 @@ class HourlyCard extends Component {
     return(
       <div className='hourlyCard'>
         <h2>{this.props.hour}</h2>
-        <h3><img src={this.props.condition}/></h3>
+        <h3>{this.props.condition}</h3>
         <h3>{this.props.projectedTemp}</h3>
+        <h3>{this.props.icon}</h3>
       </div>
       )
   }
 }
 
-export default HourlyCard; 
+export default HourlyCard;
