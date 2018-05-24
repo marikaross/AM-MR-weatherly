@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js';
 import HourlyCard from './Hourly-Card.js'
 import sun from './sun.png'
 import data from './mock-data.js';
+import HourlyContainer from './Hourly-Container.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
+      hourlyCards: [...data.hourly_forecast],
       hourlyCardLimit: 7
     }
+    this.fillHourlyCards = this.fillHourlyCards.bind(this);
   }
+
+  fillHourlyCards() {
+  let hoursObj = this.state.hourlyCards.reduce((hoursprojection, hour) => {
+    if(hoursprojection.length > 7) {
+        return hoursprojection;
+      }
+      hoursprojection.push({hour: hour.FCTTIME.hour , 
+                            condition: hour.condition ,
+                            icon: hour.icon_url, 
+                            temp: hour.temp.english})
+      return hoursprojection;
+    }, [])
+    return hoursObj;
+}
 
   getCurrentData(data) {
     const weatherStatus = {
@@ -34,7 +50,12 @@ class App extends Component {
     return (
       <div className="App">
         <Card name={location} condition={icon} description="A lovely sun" currentTemp={temp} highLow={high, low} summary={summary}/>
-        <HourlyCard hour="8:00am" condition={sun} projectedTemp="56" />
+        // <HourlyContainer card={
+        //   this.fillHourlyCards().map(hour => {
+        //     return <HourlyCard hour={hour.hour} condition={hour.condition} projectedTemp={hour.temp} icon={hour.icon} />
+        //   }) 
+        // } />
+        //the above commented out code is causing errors but we is promising.
       </div>
     );
   }
