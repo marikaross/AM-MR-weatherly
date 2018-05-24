@@ -3,8 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 import Card from './Card.js';
 import sun from './sun.png'
+import data from './mock-data.js';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
@@ -16,6 +18,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <Card name="Denver" condition={sun} description="A lovely sun" currentTemp="68" highLow="70/50" summary="Today will be mostly sunny with intermitent clouds"/>
+        
       </div>
     );
   }
