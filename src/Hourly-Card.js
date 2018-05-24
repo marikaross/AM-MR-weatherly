@@ -16,4 +16,4 @@ class HourlyCard extends Component {
   }
 }
 
-export default HourlyCard; 
+export default HourlyCard;
