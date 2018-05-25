@@ -50,12 +50,13 @@ class App extends Component {
     return (
       <div className="App">
         <Card name={location} condition={icon} description="A lovely sun" currentTemp={temp} highLow={high, low} summary={summary}/>
-        // <HourlyContainer card={
-        //   this.fillHourlyCards().map(hour => {
-        //     return <HourlyCard hour={hour.hour} condition={hour.condition} projectedTemp={hour.temp} icon={hour.icon} />
-        //   }) 
-        // } />
-        //the above commented out code is causing errors but we is promising.
+        <HourlyContainer>
+        {
+          this.fillHourlyCards().map(hour => {
+            return <HourlyCard hour={hour.hour} condition={hour.condition} projectedTemp={hour.temp} icon={hour.icon} />
+          }) 
+        }
+        </HourlyContainer>
       </div>
     );
   }
