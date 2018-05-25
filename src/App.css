@@ -27,11 +27,9 @@
   to { transform: rotate(360deg); }
 }
 
-.weatherCard,
- {
-  border: 1px solid black;
-  margin: 0 auto;
-  text-align: left;
+.weatherCard {
+  border: solid 2px #808080;
+  margin: 5% auto;
   width: 50%;
 }
 
@@ -40,9 +38,27 @@
   margin-left: 3%;
 }
 
-.weatherCard img,
-.hourlyCard img {
+.weatherCard img {
   width: 100px;
   height: 100px;
+}
+
+.hourly-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.hourlyCard {
+  border: solid 2px #808080;
+}
+
+.hourlyCard img {
+  width: 10vw;
+}
+
+.highLow {
+  display: inline;
+  margin-right: 3%;
 }
 

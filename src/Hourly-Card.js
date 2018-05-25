@@ -8,10 +8,10 @@ class HourlyCard extends Component {
   render() {
     return(
       <div className='hourlyCard'>
-        <h2>{this.props.hour}</h2>
-        <h3>{this.props.condition}</h3>
-        <h3>{this.props.projectedTemp}</h3>
-        <h3>{this.props.icon}</h3>
+        <h3>{this.props.hour}</h3>
+        <h5>{this.props.condition}</h5>
+        <h3><img src={this.props.icon}/></h3>
+        <h2>{this.props.projectedTemp}</h2>
       </div>
       )
   }
