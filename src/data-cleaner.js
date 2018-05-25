@@ -1,7 +1,7 @@
 import React from 'react';
 import data from './mock-data.js';
 
-export default function getCurrentData(data) {
+function getCurrentData(data) {
 
   const weatherStatus = {
     location: data.current_observation.display_location.full,
@@ -16,3 +16,20 @@ export default function getCurrentData(data) {
 
   return weatherStatus;
 }
+
+function fillHourlyCards() {
+  let hoursObj = this.state.hourlyCards.reduce((hoursprojection, hour) => {
+    if(hoursprojection.length > 7) {
+        return hoursprojection;
+      }
+      hoursprojection.push({hour: hour.FCTTIME.hour , 
+                            condition: hour.condition ,
+                            icon: hour.icon_url, 
+                            temp: hour.temp.english})
+      return hoursprojection;
+    }, [])
+    return hoursObj;
+}
+
+export default {getCurrentData: getCurrentData, 
+               fillHourlyCards: fillHourlyCards};
