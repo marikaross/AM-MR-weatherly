@@ -6,16 +6,17 @@ import Controls from './Controls.js'
 import data from './mock-data.js';
 import HourlyContainer from './Hourly-Container.js';
 import cleaner from './data-cleaner.js'
-import Key from './Key.js'
+// import Key from './Key.js'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       hourlyCards: [...data.hourly_forecast],
-      hourlyCardLimit: 7
+      tenDay: [...data.forecast.simpleforecast.forecastday]
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
+    cleaner.get10Day = cleaner.get10Day.bind(this);
   }
 
 
@@ -30,6 +31,13 @@ class App extends Component {
           cleaner.fillHourlyCards().map(hour => {
             return <HourlyCard hour={hour.hour} condition={hour.condition} projectedTemp={hour.temp} icon={hour.icon} />
           }) 
+        }
+        </HourlyContainer>
+        <HourlyContainer>
+        {
+          cleaner.get10Day().map(day => {
+            return <Card city={day.weekday} condition={day.statusPic} high={day.high} low={day.low} />
+          })
         }
         </HourlyContainer>
       </div>

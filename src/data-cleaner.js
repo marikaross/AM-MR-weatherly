@@ -17,6 +17,20 @@ function getCurrentData(data) {
   return weatherStatus;
 }
 
+function get10Day() {
+  let forecast = this.state.tenDay.reduce((forecast, day) => {
+    
+    forecast.push({
+    weekday: day.date.weekday,
+    statusPic: day.icon_url,
+    high: day.high.fahrenheit,
+    low: day.low.fahrenheit
+  })
+    return forecast;
+  }, []);
+  return forecast;
+}
+
 function fillHourlyCards() {
   let hoursObj = this.state.hourlyCards.reduce((hoursprojection, hour) => {
     if(hoursprojection.length > 7) {
@@ -32,4 +46,5 @@ function fillHourlyCards() {
 }
 
 export default {getCurrentData: getCurrentData, 
-               fillHourlyCards: fillHourlyCards};
+               fillHourlyCards: fillHourlyCards,
+               get10Day: get10Day };
