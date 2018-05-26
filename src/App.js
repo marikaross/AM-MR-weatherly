@@ -6,6 +6,7 @@ import Controls from './Controls.js'
 import data from './mock-data.js';
 import HourlyContainer from './Hourly-Container.js';
 import cleaner from './data-cleaner.js'
+import Key from './Key.js'
 
 class App extends Component {
   constructor() {
