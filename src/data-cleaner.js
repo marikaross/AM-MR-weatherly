@@ -1,5 +1,5 @@
 import React from 'react';
-import data from './mock-data.js';
+
 
 function getCurrentData(data) {
 
@@ -11,7 +11,7 @@ function getCurrentData(data) {
     high: data.forecast.simpleforecast.forecastday[0].high.fahrenheit,
     low: data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
     summary: data.forecast.txt_forecast.forecastday[0].fcttext,
-    icon: data.forecast.simpleforecast.forecastday[0].icon_url
+    icon: data.forecast.simpleforecast.forecastday[0].icon_url,
   }
 
   return weatherStatus;
