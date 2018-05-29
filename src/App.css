@@ -62,3 +62,6 @@
   margin-right: 3%;
 }
 
+.forecast {
+  visibility: hidden;
+}
