@@ -11,7 +11,7 @@ class HourlyCard extends Component {
         <h3>{this.props.hour}</h3>
         <h5>{this.props.condition}</h5>
         <h3><img src={this.props.icon}/></h3>
-        <h2>{this.props.projectedTemp}</h2>
+        <h2>{this.props.projectedTemp}&#8457;</h2>
       </div>
       )
   }
