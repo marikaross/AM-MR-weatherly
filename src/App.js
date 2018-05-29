@@ -12,7 +12,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-    
+      hourlyCards: [...data.hourly_forecast],
+      tenDay: [...data.forecast.simpleforecast.forecastday]
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
     cleaner.get10Day = cleaner.get10Day.bind(this);
