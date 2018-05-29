@@ -17,7 +17,7 @@ function getCurrentData(data) {
   return weatherStatus;
 }
 
-function get10Day() {
+function get10Day(data) {
   let forecast = this.state.tenDay.reduce((forecast, day) => {
     
     forecast.push({
@@ -31,7 +31,7 @@ function get10Day() {
   return forecast;
 }
 
-function fillHourlyCards() {
+function fillHourlyCards(data) {
   let hoursObj = this.state.hourlyCards.reduce((hoursprojection, hour) => {
     if(hoursprojection.length > 7) {
         return hoursprojection;

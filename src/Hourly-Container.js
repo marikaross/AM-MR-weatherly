@@ -1,14 +1,23 @@
 import React from 'react';
 import HourlyCard from './Hourly-Card.js';
+import cleaner from './data-cleaner.js';
 
 export default function HourlyCardsContainer(props) {
   return (
     <div className="hourly-container">
-      {props.children}
+      {
+          cleaner.fillHourlyCards().map(hour => {
+            return (
+              <HourlyCard 
+                hour={hour.hour} 
+                condition={hour.condition} 
+                projectedTemp={hour.temp} 
+                icon={hour.icon} 
+              />
+            )
+          }) 
+        }
     </div>
   )
 }
 
-// props.questions.map((question, index) => {
-//           return <Question question={question} key={index} />
-//         })

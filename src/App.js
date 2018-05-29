@@ -3,17 +3,19 @@ import './App.css';
 import Card from './Card.js';
 import HourlyCard from './Hourly-Card.js'
 import Controls from './Controls.js'
-// import data from './mock-data.js';
+import data from './mock-data.js';
 import HourlyContainer from './Hourly-Container.js';
 import cleaner from './data-cleaner.js'
 import Key from './Key.js'
-console.log(Key);
+
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      hourlyCards: [], 
-      tenDay: []
+      card: [],
+      hourlyCards:[...data.hourly_forecast], 
+      tenDay: [...data.forecast.simpleforecast.forecastday],
+    
     
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
@@ -37,25 +39,18 @@ class App extends Component {
 
 
   render() {
-    let {location, currentCondition, summary, temp, high, low, icon} = cleaner.getCurrentData(this.state.current);
+    let {location, currentCondition, summary, temp, high, low, icon} = cleaner.getCurrentData(data);
     return (
       <div className="App">
         <Controls />
         <Card city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
-        <HourlyContainer>
+        <HourlyContainer/>
+
+        <tenDayContainer>
         {
-          cleaner.fillHourlyCards().map(hour => {
-            return <HourlyCard hour={hour.hour} condition={hour.condition} projectedTemp={hour.temp} icon={hour.icon} />
-          }) 
+       
         }
-        </HourlyContainer>
-        <HourlyContainer>
-        {
-          cleaner.get10Day().map(day => {
-            return <Card city={day.weekday} condition={day.statusPic} high={day.high} low={day.low} />
-          })
-        }
-        </HourlyContainer>
+        </tenDayContainer>
       </div>
     );
   }
