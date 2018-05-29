@@ -3,7 +3,7 @@ import './App.css';
 import Card from './Card.js';
 import HourlyCard from './Hourly-Card.js'
 import Controls from './Controls.js'
-// import data from './mock-data.js';
+import data from './mock-data.js';
 import HourlyContainer from './Hourly-Container.js';
 import cleaner from './data-cleaner.js'
 import Key from './Key.js'
@@ -12,8 +12,6 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      hourlyCards: [], 
-      tenDay: []
     
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
