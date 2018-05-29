@@ -10,16 +10,26 @@ export default class Controls extends Component {
   }
 
   showWeather() {
-    this.setState({
-      showWeather: this.state.showWeather
-    })
+    
+    // this.setState({
+    //   showWeather: true
+    // })
+    // let clearskys;
+    // if(this.state.showWeather) {
+    //   clearskys = null; 
+    // } else {
+    //   clearskys = "forecast";
+    // }
+    
   }
+
+
   
   render() {
     return (
       <div>
-        <input type="text" placeHolder="Enter your city"/>
-        <button>Submit</button> 
+        <input type="text" placeholder="Enter your city"/>
+        <button onClick={this.showWeather}>Submit</button> 
       </div>
       )
   }

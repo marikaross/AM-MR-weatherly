@@ -7,7 +7,7 @@ class HourlyCard extends Component {
 
   render() {
     return(
-      <div className='hourlyCard'>
+      <div className="hourlyCard">
         <h3>{this.props.hour}</h3>
         <h5>{this.props.condition}</h5>
         <h3><img src={this.props.icon}/></h3>
