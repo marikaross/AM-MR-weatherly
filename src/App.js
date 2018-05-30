@@ -22,12 +22,20 @@ class App extends Component {
     this.fetchWeather = this.fetchWeather.bind(this);
   }
 
-  fetchWeather(input) {
-    let userInput = input.split(',');
-    let city = userInput[0];
-    let state = userInput[1].trim();
+  formatEntry(input) {
+    const userInput = input.split(',');
+    const entryObj = 
+    {
+      city: userInput[0],
+      state: userInput[1].trim()
+    }
+    return entryObj;
+  }
 
-  fetch(`http://api.wunderground.com/api/${Key}/conditions/hourly/forecast10day/q/${state}/${city}.json`)
+  fetchWeather(input) {
+    const cleanedInput = this.formatEntry(input);
+
+  fetch(`http://api.wunderground.com/api/${Key}/conditions/hourly/forecast10day/q/${cleanedInput.state}/${cleanedInput.city}.json`)
     .then(data => data.json())
     .then(data => {
       const hourlyCards = cleaner.fillHourlyCards([...data.hourly_forecast]);
