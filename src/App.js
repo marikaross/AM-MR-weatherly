@@ -4,6 +4,7 @@ import Card from './Card.js';
 import HourlyCard from './Hourly-Card.js'
 import Controls from './Controls.js'
 import HourlyContainer from './Hourly-Container.js';
+import TenDayContainer from './tenDayContainer.js';
 import cleaner from './data-cleaner.js'
 import Key from './Key.js'
 import { shallow } from 'enzyme';
@@ -40,7 +41,7 @@ class App extends Component {
               <Controls />
               <Card city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
               <HourlyContainer/>
-              <tenDayContainer/>
+              <TenDayContainer/>
             </div>
                 );
             } else {

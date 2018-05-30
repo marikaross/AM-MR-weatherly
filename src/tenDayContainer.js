@@ -1,15 +1,15 @@
 import React from 'react';
-import tenDayCard from './tenDayCard';
+import TenDayCard from './Ten-Day-Card';
 import cleaner from './data-cleaner.js';
 
 
-export default function tenDayContainer(props) {
+export default function TenDayContainer(props) {
   return (
       <div className="tenDayContainer">
         {
           cleaner.get10Day().map(day => {
             return (
-              <Card 
+              <TenDayCard 
                 city={day.weekday} 
                 condition={day.statusPic} 
                 high={day.high} 
@@ -18,6 +18,6 @@ export default function tenDayContainer(props) {
                 )
               })
         }
-      </div
+      </div>
     )
 }
