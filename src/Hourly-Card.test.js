@@ -1,9 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mockData from './mock-data.js'
-import HourlyCard from './Hourly-Card.js'
+import HourlyCard from './Hourly-Card.js';
 
-describe.only('HourlyCard', () => {
+describe('HourlyCard', () => {
   let hourCard;
   beforeEach(() => {
     hourCard = shallow(<HourlyCard 
@@ -19,3 +18,5 @@ describe.only('HourlyCard', () => {
     expect(actualStructureLength).toEqual(expectedStructureLength)
   })
 })
+
+

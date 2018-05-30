@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import tenDayContainer from './tenDayContainer.js';
-import tenDayCard from './Ten-Day-Card.js';
+import TenDayContainer from './TenDayContainer.js';
+import TenDayCard from './Ten-Day-Card.js';
 
-describe.only('ten day container', () => {
+describe('ten day container', () => {
   it('should render the appropriate amount of cards', () => {
-    const tenDayContainer = shallow(<tenDayContainer
+    const wrapper = shallow(<TenDayContainer
                                     tenDayData={[{weekday: "hammertime",
                                                 statusPic: "not looking good",
                                                 high: "you on fire",
@@ -15,9 +15,23 @@ describe.only('ten day container', () => {
                                                 high: "you on fire",
                                                 low: "ice cold"}]} />)
     
-    const actualCardLength = tenDayContainer.find(tenDayCard).length;
-    console.log(tenDayContainer.debug())
+    console.log(wrapper.debug())
+    const actualCardLength = wrapper.find(TenDayCard).length;
     const expectedCardLength = 2;
     expect(actualCardLength).toEqual(expectedCardLength);
+  })
+  it('should render the card with the correct props',() => {
+    const wrapper = shallow(<TenDayContainer
+                                    tenDayData={[{weekday: "hammertime",
+                                                statusPic: "not looking good",
+                                                high: "you on fire",
+                                                low: "mc hammer"} 
+                                                ]} />)
+    const actualCardProps = wrapper.find(TenDayCard).props()
+    const expectedCardProps = {weekday: "hammertime",
+                              statusPic: "not looking good",
+                              high: "you on fire",
+                              low: "mc hammer"}
+    expect(actualCardProps).toEqual(expectedCardProps)
   })
 })
