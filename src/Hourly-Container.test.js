@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import HourlyContainer from './Hourly-Container.js';
 import HourlyCard from './Hourly-Card.js';
 
-describe.only('HourlyContainer', () => {
+describe('HourlyContainer', () => {
   it('should render the appropriate amount of cards', () => {
     const hourlyContainer = shallow(<HourlyContainer
                                     hourlyData={[{hour: "hammertime",
