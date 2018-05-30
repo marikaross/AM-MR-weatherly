@@ -3,7 +3,6 @@ import './App.css';
 import Card from './Card.js';
 import HourlyCard from './Hourly-Card.js'
 import Controls from './Controls.js'
-// import data from './mock-data.js';
 import HourlyContainer from './Hourly-Container.js';
 import cleaner from './data-cleaner.js'
 import Key from './Key.js'
@@ -36,27 +35,15 @@ class App extends Component {
   render() {
     if(this.state.hourlyCards && this.state.tenDay) {
         let {location, currentCondition, summary, temp, high, low, icon} = cleaner.getCurrentData(this.state.current);
-        return (
-          <div className="App">
-            <Controls />
-            <Card city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
-            <HourlyContainer>
-            {
-              cleaner.fillHourlyCards().map(hour => {
-              return <HourlyCard hour={hour.hour} condition={hour.condition} projectedTemp={hour.temp} icon={hour.icon} />
-              }) 
-            }
-            </HourlyContainer>
-            <HourlyContainer>
-            {
-              cleaner.get10Day().map(day => {
-              return <Card city={day.weekday} condition={day.statusPic} high={day.high} low={day.low} />
-              })
-            }
-            </HourlyContainer>
-          </div>
-        );
-    } else {
+          return (
+            <div className="App">
+              <Controls />
+              <Card city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
+              <HourlyContainer/>
+              <tenDayContainer/>
+            </div>
+                );
+            } else {
       return <Controls />
     }
   }
