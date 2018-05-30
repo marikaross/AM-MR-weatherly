@@ -36,7 +36,7 @@ function fillHourlyCards(rawData) {
     if(hoursprojection.length > 7) {
         return hoursprojection;
       }
-      hoursprojection.push({hour: hour.FCTTIME.hour , 
+      hoursprojection.push({hour: hour.FCTTIME.civil , 
                             condition: hour.condition ,
                             icon: hour.icon_url, 
                             temp: hour.temp.english})

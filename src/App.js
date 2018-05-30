@@ -15,19 +15,28 @@ class App extends Component {
     this.state = {
       hourlyCards: [],
       tenDay: [],
-      current: {}
+      current: {},
+      error: false
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
     cleaner.get10Day = cleaner.get10Day.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
   }
 
-  fetchWeather(input) {
-    let userInput = input.split(',');
-    let city = userInput[0];
-    let state = userInput[1].trim();
+  formatEntry(input) {
+    const userInput = input.split(', ');
+    const entryObj = 
+    {
+      city: userInput[0],
+      state: userInput[1]
+    }
+    return entryObj;
+  }
 
-  fetch(`http://api.wunderground.com/api/${Key}/conditions/hourly/forecast10day/q/${state}/${city}.json`)
+  fetchWeather(input) {
+    const cleanedInput = this.formatEntry(input);
+
+  fetch(`http://api.wunderground.com/api/${Key}/conditions/hourly/forecast10day/q/${cleanedInput.state}/${cleanedInput.city}.json`)
     .then(data => data.json())
     .then(data => {
       const hourlyCards = cleaner.fillHourlyCards([...data.hourly_forecast]);
@@ -39,7 +48,9 @@ class App extends Component {
         current: currentData
       })
     })
-    .catch("Please enter a valid city and state");
+    .catch(() => {
+      alert("please enter a valid location");
+    });
   }
 
 
@@ -53,9 +64,9 @@ class App extends Component {
               <HourlyContainer hourlyData={this.state.hourlyCards}/>
               <TenDayContainer tenDayData={this.state.tenDay}/>
             </div>
-                );
-            } else {
-      return <Search fetchWeather={this.fetchWeather}/>
+          );
+      } else {
+        return <Search fetchWeather={this.fetchWeather}/>
     }
   }
 }
