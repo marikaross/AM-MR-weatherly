@@ -19,7 +19,15 @@ describe('App default state', () => {
     expect(actualState).toEqual(expectedState);
   })
 
-  it('state properties should have length after fetch',)
+  it('state properties should have length after fetch',);
+  it('format entry should return and object', () => {
+    const expectedObj = {
+                          city: "Dallas",
+                          state: "TX"
+                        }
+    const actualObj = renderedApp.instance().formatEntry("Dallas, TX");
+    expect(actualObj).toEqual(expectedObj);
+  })
 
 
 

@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       hourlyCards: [],
       tenDay: [],
-      current: {}
+      current: {},
+      error: false
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
     cleaner.get10Day = cleaner.get10Day.bind(this);
@@ -23,11 +24,11 @@ class App extends Component {
   }
 
   formatEntry(input) {
-    const userInput = input.split(',');
+    const userInput = input.split(', ');
     const entryObj = 
     {
       city: userInput[0],
-      state: userInput[1].trim()
+      state: userInput[1]
     }
     return entryObj;
   }
@@ -47,7 +48,9 @@ class App extends Component {
         current: currentData
       })
     })
-    .catch("Please enter a valid city and state");
+    .catch(() => {
+      alert("please enter a valid location");
+    });
   }
 
 
@@ -61,9 +64,9 @@ class App extends Component {
               <HourlyContainer hourlyData={this.state.hourlyCards}/>
               <TenDayContainer tenDayData={this.state.tenDay}/>
             </div>
-                );
-            } else {
-      return <Search fetchWeather={this.fetchWeather}/>
+          );
+      } else {
+        return <Search fetchWeather={this.fetchWeather}/>
     }
   }
 }
