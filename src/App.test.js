@@ -8,13 +8,19 @@ describe('App default state', () => {
   it('renders without crashing', () => {
     expect(true);
   });
-  // let renderedApp;
-  // beforeEach(() => {
-  //   renderedApp = shallow(<App />)
-  // })
-  // it('should have a default state of weatherInfo equal to empty array', () => {
-  //   const expectedState = [];
-  //   const actualState = renderedApp.state('weatherInfo');
-  //   expect(actualState).toEqual(expectedState);
-  // })
+  let renderedApp;
+  beforeEach(() => {
+    renderedApp = shallow(<App />)
+  })
+  
+  it('should have a default state of 3 properties equal to empty arrays and an object', () => {
+    const expectedState = [];
+    const actualState = renderedApp.state("hourlyCards");
+    expect(actualState).toEqual(expectedState);
+  })
+
+  it('state properties should have length after fetch',)
+
+
+
 })
