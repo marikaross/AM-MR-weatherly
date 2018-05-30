@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import mockData from './mock-data.js'
 import HourlyCard from './Hourly-Card.js'
 
-describe ('HourlyCard', () => {
+describe.only('HourlyCard', () => {
   let hourCard;
   beforeEach(() => {
     hourCard = shallow(<HourlyCard 
@@ -13,12 +13,9 @@ describe ('HourlyCard', () => {
       projectedTemp='56'  />
     )
   })
-
-  // it('should exist', () => {
-  //   expect(HourlyCard).toBeDefined();
-  // })
-
-  it('should start with props', () =>{
-    console.log(hourCard.debug())
+  it('should render with expected html tags', () =>{
+    const actualStructureLength = hourCard.find("h3").length;
+    const expectedStructureLength = 2;
+    expect(actualStructureLength).toEqual(expectedStructureLength)
   })
 })

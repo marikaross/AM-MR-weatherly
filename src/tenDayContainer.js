@@ -7,7 +7,7 @@ export default function TenDayContainer(props) {
   return (
       <div className="tenDayContainer">
         {
-          cleaner.get10Day().map(day => {
+          props.tenDayData.map(day => {
             return (
               <TenDayCard 
                 weekday={day.weekday} 

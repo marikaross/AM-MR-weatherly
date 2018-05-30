@@ -6,7 +6,7 @@ export default function HourlyCardsContainer(props) {
   return (
     <div className="hourly-container">
       {
-          cleaner.fillHourlyCards().map(hour => {
+          props.hourlyData.map(hour => {
             return (
               <HourlyCard 
                 hour={hour.hour} 
@@ -20,3 +20,6 @@ export default function HourlyCardsContainer(props) {
     </div>
   )
 }
+
+"if given array of 2, renders two hourly cards with props"
+'renders card with correct amount of props'
