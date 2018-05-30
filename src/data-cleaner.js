@@ -17,8 +17,8 @@ function getCurrentData(data) {
   return weatherStatus;
 }
 
-function get10Day() {
-  let forecast = this.state.tenDay.reduce((forecast, day) => {
+function get10Day(rawData) {
+  let forecast = rawData.reduce((forecast, day) => {
     
     forecast.push({
     weekday: day.date.weekday,
@@ -31,8 +31,8 @@ function get10Day() {
   return forecast;
 }
 
-function fillHourlyCards() {
-  let hoursObj = this.state.hourlyCards.reduce((hoursprojection, hour) => {
+function fillHourlyCards(rawData) {
+  let hoursObj = rawData.reduce((hoursprojection, hour) => {
     if(hoursprojection.length > 7) {
         return hoursprojection;
       }
