@@ -1,20 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class HourlyCard extends Component {
-  constructor() {
-    super();
-  }
+const HourlyCard = props => {
 
-  render() {
     return(
       <div className="hourlyCard">
-        <h3>{this.props.hour}</h3>
-        <h5>{this.props.condition}</h5>
-        <h3><img src={this.props.icon}/></h3>
-        <h2>{this.props.projectedTemp}&#8457;</h2>
+        <h3>{props.hour}</h3>
+        <h5>{props.condition}</h5>
+        <h3><img src={props.icon}/></h3>
+        <h2>{props.projectedTemp}&#8457;</h2>
       </div>
       )
-  }
+  
 }
+
+
 
 export default HourlyCard;
