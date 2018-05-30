@@ -10,8 +10,8 @@ export default function TenDayContainer(props) {
           cleaner.get10Day().map(day => {
             return (
               <TenDayCard 
-                city={day.weekday} 
-                condition={day.statusPic} 
+                weekday={day.weekday} 
+                statusPic={day.statusPic} 
                 high={day.high} 
                 low={day.low} 
                 />
