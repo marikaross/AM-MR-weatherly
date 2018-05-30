@@ -1,35 +1,21 @@
 import React, { Component } from 'react';
 
 export default class Controls extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
-      showWeather: false,
+      userInput: ''
     }
-    this.showWeather = this.showWeather.bind(this)
   }
 
-  showWeather() {
-    
-    // this.setState({
-    //   showWeather: true
-    // })
-    // let clearskys;
-    // if(this.state.showWeather) {
-    //   clearskys = null; 
-    // } else {
-    //   clearskys = "forecast";
-    // }
-    
-  }
-
-
-  
   render() {
     return (
       <div>
-        <input type="text" placeholder="Enter your city"/>
-        <button onClick={this.showWeather}>Submit</button> 
+        <input type="text" placeholder="Enter your city" onChange={(event) => {
+          this.setState({
+          userInput: event.target.value
+        })}}/>
+        <button onClick={this.props.onClick}>Submit</button> 
       </div>
       )
   }
