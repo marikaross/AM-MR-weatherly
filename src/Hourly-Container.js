@@ -2,7 +2,7 @@ import React from 'react';
 import HourlyCard from './Hourly-Card.js';
 import cleaner from './data-cleaner.js';
 
-export default function HourlyCardsContainer(props) {
+export default function HourlyCardsContainer() {
   return (
     <div className="hourly-container">
       {
@@ -20,3 +20,6 @@ export default function HourlyCardsContainer(props) {
     </div>
   )
 }
+
+"if given array of 2, renders two hourly cards with props"
+'renders card with correct amount of props'

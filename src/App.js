@@ -13,7 +13,9 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      
+      hourlyCards: [],
+      tenDay: [],
+      current: {}
     }
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
     cleaner.get10Day = cleaner.get10Day.bind(this);
@@ -39,7 +41,7 @@ class App extends Component {
 
 
   render() {
-    if(this.state.hourlyCards && this.state.tenDay) {
+    if(this.state.hourlyCards.length > 0 && this.state.tenDay.length > 0) {
         let {location, currentCondition, summary, temp, high, low, icon} = cleaner.getCurrentData(this.state.current);
           return (
             <div className="App">

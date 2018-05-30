@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import mockData from './mock-data.js'
 import HourlyCard from './Hourly-Card.js'
 
-describe ('HourlyCard', () => {
+describe.only('HourlyCard', () => {
   let hourCard;
   beforeEach(() => {
     hourCard = shallow(<HourlyCard 
@@ -20,5 +20,8 @@ describe ('HourlyCard', () => {
 
   it('should start with props', () =>{
     console.log(hourCard.debug())
+    const expectedPropHour = hourCard.instance().props.hour;
+    const actualPropHour = 'hour'
+    expect(expectedPropHour)
   })
 })
