@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import mockData from './mock-data.js'
-import HourlyCard from './Hourly-Card.js'
+import mockData from './mock-data.js';
+import HourlyCard from './Hourly-Card.js';
 
 describe.only('HourlyCard', () => {
   let hourCard;
@@ -19,3 +19,5 @@ describe.only('HourlyCard', () => {
     expect(actualStructureLength).toEqual(expectedStructureLength)
   })
 })
+
+
