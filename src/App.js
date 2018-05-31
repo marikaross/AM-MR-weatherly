@@ -22,6 +22,7 @@ class App extends Component {
     cleaner.get10Day = cleaner.get10Day.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.formatEntry = this.formatEntry.bind(this);
   }
 
   formatEntry(input) {
@@ -36,7 +37,6 @@ class App extends Component {
 
   fetchWeather(input) {
     const cleanedInput = this.formatEntry(input);
-    console.log('hi')
 
   fetch(`http://api.wunderground.com/api/${Key}/conditions/hourly/forecast10day/q/${cleanedInput.state}/${cleanedInput.city}.json`)
     .then(data => data.json())
