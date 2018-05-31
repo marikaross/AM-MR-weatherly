@@ -14,7 +14,7 @@ describe('App default state', () => {
     renderedApp = shallow(<App />)
   })
   
-  it.skip('should have a default state of 3 properties equal to empty arrays and an object', () => {
+  it('should have a default state of 3 properties equal to empty arrays and an object', () => {
     const expectedState = [];
     const actualState = renderedApp.state("hourlyCards");
     expect(actualState).toEqual(expectedState);

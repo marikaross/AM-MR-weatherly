@@ -22,6 +22,7 @@ class App extends Component {
     cleaner.get10Day = cleaner.get10Day.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
     this.componentDidMount = this.componentDidMount.bind(this);
+    this.formatEntry = this.formatEntry.bind(this);
   }
 
   formatEntry(input) {
@@ -58,7 +59,7 @@ class App extends Component {
 
     componentDidMount() {
     const location = localStorage.getItem('location')
-    if ('location') {
+    if (location) {
       this.fetchWeather(location)
     }
   }
@@ -76,7 +77,7 @@ class App extends Component {
             </div>
           );
       } else {
-        {return <Search fetchWeather={this.fetchWeather}/>}
+        return <Search fetchWeather={this.fetchWeather}/>
     }
   }
 }
