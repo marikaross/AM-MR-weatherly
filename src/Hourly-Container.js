@@ -20,6 +20,3 @@ export default function HourlyCardsContainer(props) {
     </div>
   )
 }
-
-"if given array of 2, renders two hourly cards with props"
-'renders card with correct amount of props'

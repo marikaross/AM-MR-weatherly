@@ -58,7 +58,7 @@ class App extends Component {
 
     componentDidMount() {
     const location = localStorage.getItem('location')
-    if ('location') {
+    if (location) {
       this.fetchWeather(location)
     }
   }
@@ -76,7 +76,7 @@ class App extends Component {
             </div>
           );
       } else {
-        {return <Search fetchWeather={this.fetchWeather}/>}
+        return <Search fetchWeather={this.fetchWeather}/>
     }
   }
 }
