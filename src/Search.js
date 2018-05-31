@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 export default class Search extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       userInput: ''
     }
@@ -16,12 +16,14 @@ export default class Search extends Component {
           placeholder="Example search" 
           value={this.state.userInput}
           onChange={(event) => {
-          this.setState({
+          return this.setState({
           userInput: event.target.value
-       
-        })}} />
-        <button onClick={(event) => 
-          {this.props.fetchWeather(this.state.userInput)}}
+        })
+        }} />
+        <button onClick={(event) => {
+          event.preventDefault()
+          this.props.fetchWeather(this.state.userInput)
+        }}
         >Submit</button> 
       </div>
       )
