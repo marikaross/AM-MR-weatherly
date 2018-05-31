@@ -10,7 +10,8 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className="search">
+        <h1 className="title">Weatherly</h1>
         <input 
           type="text" 
           placeholder="Example search" 
