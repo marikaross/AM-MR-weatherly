@@ -21,6 +21,7 @@ class App extends Component {
     cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
     cleaner.get10Day = cleaner.get10Day.bind(this);
     this.fetchWeather = this.fetchWeather.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   formatEntry(input) {
@@ -35,6 +36,7 @@ class App extends Component {
 
   fetchWeather(input) {
     const cleanedInput = this.formatEntry(input);
+    console.log('hi')
 
   fetch(`http://api.wunderground.com/api/${Key}/conditions/hourly/forecast10day/q/${cleanedInput.state}/${cleanedInput.city}.json`)
     .then(data => data.json())
@@ -45,27 +47,36 @@ class App extends Component {
       this.setState(
         {hourlyCards: hourlyCards, 
         tenDay: tenDay,
-        current: currentData
-      })
+        current: currentData},
+        localStorage.setItem('location', input))
     })
     .catch(() => {
       alert("please enter a valid location");
     });
   }
 
+
+    componentDidMount() {
+    const location = localStorage.getItem('location')
+    if ('location') {
+      this.fetchWeather(location)
+    }
+  }
+
+
   render() {
-    if(this.state.hourlyCards.length > 0 && this.state.tenDay.length > 0) {
+      if(this.state.hourlyCards.length > 0 && this.state.tenDay.length > 0) {
         let {location, currentCondition, summary, temp, high, low, icon} = this.state.current;
           return (
             <div className="App">
-              <Search />
+              <Search fetchWeather={this.fetchWeather}/>
               <Card city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
               <HourlyContainer hourlyData={this.state.hourlyCards}/>
               <TenDayContainer tenDayData={this.state.tenDay}/>
             </div>
           );
       } else {
-        return <Search fetchWeather={this.fetchWeather}/>
+        {return <Search fetchWeather={this.fetchWeather}/>}
     }
   }
 }
