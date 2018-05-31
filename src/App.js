@@ -55,12 +55,14 @@ class App extends Component {
     });
   }
 
+
     componentDidMount() {
     const location = localStorage.getItem('location')
     if ('location') {
       this.fetchWeather(location)
     }
   }
+
 
   render() {
       if(this.state.hourlyCards.length > 0 && this.state.tenDay.length > 0) {

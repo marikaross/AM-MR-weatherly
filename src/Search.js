@@ -24,6 +24,7 @@ export default class Search extends Component {
           event.preventDefault()
           this.props.fetchWeather(this.state.userInput)
         }}
+
         >Submit</button> 
       </div>
       )
