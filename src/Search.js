@@ -20,7 +20,7 @@ export default class Search extends Component {
           userInput: event.target.value
        
         })}} />
-        <button onClick={(event) => 
+        <button onClick={() => 
           {this.props.fetchWeather(this.state.userInput)}}
         >Submit</button> 
       </div>

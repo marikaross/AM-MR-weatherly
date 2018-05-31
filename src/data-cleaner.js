@@ -12,6 +12,7 @@ function getCurrentData(data) {
     low: data.forecast.simpleforecast.forecastday[0].low.fahrenheit,
     summary: data.forecast.txt_forecast.forecastday[0].fcttext,
     icon: data.forecast.simpleforecast.forecastday[0].icon_url,
+    key: Date.now()
   }
 
   return weatherStatus;
@@ -24,7 +25,8 @@ function get10Day(rawData) {
     weekday: day.date.weekday,
     statusPic: day.icon_url,
     high: day.high.fahrenheit,
-    low: day.low.fahrenheit
+    low: day.low.fahrenheit,
+    key: Date.now()
   })
     return forecast;
   }, []);
@@ -32,18 +34,20 @@ function get10Day(rawData) {
 }
 
 function fillHourlyCards(rawData) {
-  let hoursObj = rawData.reduce((hoursprojection, hour) => {
+  let hoursObj = rawData.reduce((hoursprojection, hour, index) => {
     if(hoursprojection.length > 7) {
         return hoursprojection;
       }
       hoursprojection.push({hour: hour.FCTTIME.civil , 
                             condition: hour.condition ,
                             icon: hour.icon_url, 
-                            temp: hour.temp.english})
+                            temp: hour.temp.english,
+                            key: Date.now()})
       return hoursprojection;
     }, [])
     return hoursObj;
 }
+
 
 export default {getCurrentData: getCurrentData, 
                fillHourlyCards: fillHourlyCards,
