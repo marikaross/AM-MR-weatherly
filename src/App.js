@@ -53,7 +53,6 @@ class App extends Component {
     });
   }
 
-
   render() {
     if(this.state.hourlyCards.length > 0 && this.state.tenDay.length > 0) {
         let {location, currentCondition, summary, temp, high, low, icon} = this.state.current;
