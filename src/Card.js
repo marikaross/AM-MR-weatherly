@@ -1,23 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Card extends Component {
-  constructor() {
-    super();
+const Card = props => {
+    const hourCard = 
 
-  }
-
-  render() {
-    return (
-      <div className="weatherCard">
-        <h2>{this.props.city}</h2>
-        <h3><img src={this.props.condition} alt={this.props.description} /></h3>
-        <h3>{this.props.currentTemp}</h3>
-        <h3 className="highLow">{this.props.high}</h3>/<h3 className="highLow">{this.props.low}&#8457;</h3>
-        <p>{this.props.summary}</p>
+      <div className="hourlyCard">
+        <h3>{props.hour}</h3>
+        <h5>{props.condition}</h5>
+        <h3><img src={props.icon}/></h3>
+        <h2>{props.projectedTemp}&#8457;</h2>
       </div>
-    )
+      
+      const dayCard =
+    <div className="tenDayCard">
+      <h3>{props.weekday}</h3>
+      <img src={props.statusPic} />
+      <h3>{props.high}</h3>
+      <h3>{props.low}</h3>
+    </div>
+     
 
-  }
+     return props.hour  ? hourCard : dayCard 
+     
 }
+
+
 
 export default Card;

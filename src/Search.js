@@ -6,7 +6,17 @@ export default class Search extends Component {
     this.state = {
       userInput: ''
     }
+    this.getInput = this.getInput.bind(this)
   }
+
+  getInput(event) {
+  this.setState(
+    {userInput: event.target.value}
+    )
+  }
+
+  
+
 
   render() {
     return (
@@ -16,11 +26,8 @@ export default class Search extends Component {
           type="text" 
           placeholder="Example search" 
           value={this.state.userInput}
-          onChange={(event) => {
-          return this.setState({
-          userInput: event.target.value
-        })
-        }} />
+          onChange={this.getInput}
+         />
         <button onClick={(event) => {
           event.preventDefault()
           this.props.fetchWeather(this.state.userInput)

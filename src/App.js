@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './Card.js';
-import HourlyCard from './Hourly-Card.js'
+import CurrentWeather from './CurrentWeather.js';
+import Card from './Card.js'
 import Search from './Search.js'
 import HourlyContainer from './Hourly-Container.js';
 import TenDayContainer from './tenDayContainer.js';
@@ -16,13 +16,9 @@ class App extends Component {
       hourlyCards: [],
       tenDay: [],
       current: {},
-      error: false
     }
-    cleaner.fillHourlyCards = cleaner.fillHourlyCards.bind(this);
-    cleaner.get10Day = cleaner.get10Day.bind(this);
+    
     this.fetchWeather = this.fetchWeather.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.formatEntry = this.formatEntry.bind(this);
   }
 
   formatEntry(input) {
@@ -44,33 +40,42 @@ class App extends Component {
       const hourlyCards = cleaner.fillHourlyCards([...data.hourly_forecast]);
       const tenDay = cleaner.get10Day([...data.forecast.simpleforecast.forecastday])
       const currentData = cleaner.getCurrentData(data);
-      this.setState(
-        {hourlyCards: hourlyCards, 
-        tenDay: tenDay,
-        current: currentData},
-        localStorage.setItem('location', input))
+      this.declareStatehood(hourlyCards, tenDay, currentData)
+      this.setLocalStorage(input)
     })
     .catch(() => {
       alert("please enter a valid location");
     });
   }
 
+  declareStatehood(hourlyCards, tenDay, currentData) {
+    this.setState(
+      {hourlyCards: hourlyCards,
+      tenDay: tenDay,
+      current: currentData}
+      )
+  }
 
-    componentDidMount() {
+  componentDidMount() {
     const location = localStorage.getItem('location')
     if (location) {
       this.fetchWeather(location)
     }
   }
 
+  setLocalStorage(input) {
+    localStorage.setItem('location', input)
+  }
+
+
 
   render() {
-      if(this.state.hourlyCards.length > 0 && this.state.tenDay.length > 0) {
+      if(this.state.hourlyCards.length && this.state.tenDay.length > 0) {
         let {location, currentCondition, summary, temp, high, low, icon} = this.state.current;
           return (
             <div className="App">
               <Search fetchWeather={this.fetchWeather}/>
-              <Card city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
+              <CurrentWeather city={location} condition={icon} description="A lovely sun" currentTemp={temp} high={high} low={low} summary={summary}/>
               <HourlyContainer hourlyData={this.state.hourlyCards}/>
               <TenDayContainer tenDayData={this.state.tenDay}/>
             </div>

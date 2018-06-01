@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import TenDayContainer from './TenDayContainer.js';
-import TenDayCard from './Ten-Day-Card.js';
+import Card from './Card.js';
 
 describe('ten day container', () => {
   it('should render the appropriate amount of cards', () => {
@@ -16,7 +16,7 @@ describe('ten day container', () => {
                                                 low: "ice cold"}]} />)
     
     console.log(wrapper.debug())
-    const actualCardLength = wrapper.find(TenDayCard).length;
+    const actualCardLength = wrapper.find(Card).length;
     const expectedCardLength = 2;
     expect(actualCardLength).toEqual(expectedCardLength);
   })
@@ -27,7 +27,7 @@ describe('ten day container', () => {
                                                 high: "you on fire",
                                                 low: "mc hammer"} 
                                                 ]} />)
-    const actualCardProps = wrapper.find(TenDayCard).props()
+    const actualCardProps = wrapper.find(Card).props()
     const expectedCardProps = {weekday: "hammertime",
                               statusPic: "not looking good",
                               high: "you on fire",

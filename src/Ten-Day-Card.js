@@ -8,7 +8,6 @@ const TenDayCard = props => {
       <img src={props.statusPic} />
       <h3>{props.high}</h3>
       <h3>{props.low}</h3>
-
     </div>
     )
 }
