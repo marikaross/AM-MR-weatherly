@@ -1,5 +1,5 @@
 import React from 'react';
-import HourlyCard from './Hourly-Card.js';
+import Card from './Card.js';
 import cleaner from './data-cleaner.js';
 
 export default function HourlyCardsContainer(props) {
@@ -8,7 +8,7 @@ export default function HourlyCardsContainer(props) {
       {
           props.hourlyData.map(hour => {
             return (
-              <HourlyCard 
+              <Card 
                 hour={hour.hour} 
                 condition={hour.condition} 
                 projectedTemp={hour.temp} 

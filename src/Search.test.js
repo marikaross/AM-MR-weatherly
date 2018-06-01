@@ -10,6 +10,26 @@ describe ('Search tests', () => {
       const actualUserInput = renderedSearch.state('userInput');
       expect(actualUserInput).toEqual(expectedUserInput);
     });
-    test.skip('When Search\'s ')
   })
-})
+
+    it('When Search\'s getInput function is invoked that the userInput is updated', () => {
+      const expectedUserInput = 'some input';
+      const renderedSearch = shallow(<Search />);
+      const mockEvent = {target: {value: 'some input', name: 'userInput'}};
+      renderedSearch.instance().getInput(mockEvent);
+      const actualUserInput = renderedSearch.state('userInput');
+      expect(actualUserInput).toEqual(expectedUserInput);
+    });
+
+    // test('when Search onClick function is invoked that is it invoked with the correct arguments', () => {
+    //   const expectedArguments = expect.objectContaining(
+    //                                         { userInput: 'some input' });
+    //   const mockonClick = jest.fn();
+    //   const mockEvent = { preventDefault: jest.fn() };
+    //   const renderedSearch = (<Search onClick = { onClick } />);
+    //   renderedSearch.setState({ userInput: 'some input'});
+
+    //   renderedSearch.instance().onCLick(mockEvent);
+    //   expect(mockonClick).toHaveBeenCalledWith(expectedArguments);
+    // });
+  })

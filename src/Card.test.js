@@ -1,23 +1,35 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import HourlyContainer from './Hourly-Container.js';
 import Card from './Card.js';
 
-describe ('Card', () => {
-  let wrapper;
-  beforeEach(() => {
-    wrapper = shallow( <Card 
-                    city='Leadville'
-                    condition='super high'
-                    currentTemp='too hot'
-                    high='so high'
-                    low='so low'
-                    summary='a city of extremes'
-                    />)
+describe('HourlyContainer', () => {
+  it('should render the appropriate amount of cards', () => {
+    const hourlyContainer = shallow(<HourlyContainer
+                                    hourlyData={[{hour: "hammertime",
+                                                condition: "not looking good",
+                                                projectedTemp: "you on fire",
+                                                icon: "mc hammer"}, 
+                                                {hour: "hammertime",
+                                                condition: "sun shower",
+                                                projectedTemp: "you on fire",
+                                                icon: "smiley face"}]} />)
+    const actualCards = hourlyContainer.find(Card).length;
+    const expectedCardLength = 2;
+    expect(actualCards).toEqual(expectedCardLength)
   })
-
-  it('should render with expected HTML tags', () => {
-    const actualCardLength = wrapper.find('h3').length;
-    const expectedCardLength = 4;
-    expect(actualCardLength).toEqual(expectedCardLength);
+  it('should render the card with the correct props',() => {
+    const hourlyContainer = shallow(<HourlyContainer
+                                    hourlyData={[{hour: "hammertime",
+                                                condition: "not looking good",
+                                                temp: "you on fire",
+                                                icon: "mc hammer"} 
+                                                ]} />)
+    const actualCardProps = hourlyContainer.find(Card).props()
+    const expectedCardProps = {hour: "hammertime",
+                              condition: "not looking good",
+                              projectedTemp: "you on fire",
+                              icon: "mc hammer"}
+    expect(actualCardProps).toEqual(expectedCardProps)
   })
 })

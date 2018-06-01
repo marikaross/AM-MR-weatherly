@@ -1,7 +1,4 @@
 
-
-
-
 export default class LocalStorageMock {
   constructor() {
     this.store = {};
@@ -24,4 +21,3 @@ export default class LocalStorageMock {
   }
 };
 
-global.localStorage = new LocalStorageMock; 
