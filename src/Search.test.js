@@ -21,15 +21,4 @@ describe ('Search tests', () => {
       expect(actualUserInput).toEqual(expectedUserInput);
     });
 
-    // test('when Search onClick function is invoked that is it invoked with the correct arguments', () => {
-    //   const expectedArguments = expect.objectContaining(
-    //                                         { userInput: 'some input' });
-    //   const mockonClick = jest.fn();
-    //   const mockEvent = { preventDefault: jest.fn() };
-    //   const renderedSearch = (<Search onClick = { onClick } />);
-    //   renderedSearch.setState({ userInput: 'some input'});
-
-    //   renderedSearch.instance().onCLick(mockEvent);
-    //   expect(mockonClick).toHaveBeenCalledWith(expectedArguments);
-    // });
   })
