@@ -1,3 +1,4 @@
+# Weathrly
 Weathrly provides current, hourly, and 7 day weather forecasts for a user-enetered location through the Weather Underground API and was built using create-react-app. Created in a week's time with [Arram Mendel](https://github.com/airum82), Weatherly served as a foray into the react language, as well as an introduction to fetch requests from an external API.
 
 ## To use this program
@@ -6,7 +7,9 @@ Weathrly provides current, hourly, and 7 day weather forecasts for a user-eneter
 
 ## Built With
 This project was built with creact-react-app and vanilla css. Enzyme and jest were used for testing.  
-## Deployment  
+
+![Weathrly screenshot](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+
 
 ## Contributing
 * [Arram Mendel](https://github.com/airum82) 
