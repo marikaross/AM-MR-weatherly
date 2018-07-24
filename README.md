@@ -8,7 +8,7 @@ Weathrly provides current, hourly, and 7 day weather forecasts for a user-eneter
 ## Built With
 This project was built with creact-react-app and vanilla css. Enzyme and jest were used for testing.  
 
-![Weathrly screenshot](Weathrly/Screen Shot 2018-07-24 at 6.29.29 AM.png)
+<img src="src/weathrly.png"
 
 
 ## Contributing
